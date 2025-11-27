@@ -1,0 +1,195 @@
+/* ------------------------------------------------------------ */
+/*  GOOGLE FONTS                                                 */
+/* ------------------------------------------------------------ */
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&family=Prompt:wght@400;600&display=swap");
+
+/* ------------------------------------------------------------ */
+/*  TAILWIND CORE (ต้องอยู่บนสุด)                               */
+/* ------------------------------------------------------------ */
+@import "tailwindcss";
+
+/* RESET */
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+/* ------------------------------------------------------------ */
+/*  THEME TOKENS (Tailwind v4)                                   */
+/* ------------------------------------------------------------ */
+@theme {
+  --color-okmd-cyan: #16A7CB;
+  --color-okmd-bg-one: #57CDE5;
+  --color-okmd-bg-two: #035F74;
+  --color-okmd-bg-three: #079496;
+
+  --color-okmd-cyan-dark: #0E7893;
+  --color-okmd-cyan-light: #DEF8FE;
+
+  --color-okmd-dark: #1B1D20;
+  --color-okmd-gray: #6B7280;
+  --color-okmd-gray-border: #D1D5DB;
+  --color-okmd-gray-light: #9CA3AF;
+
+  --color-okmd-light-blue: #E0F7FA;
+  --color-okmd-very-light-blue: #F1FAFC;
+
+  --font-sans: "Kanit", "Prompt", system-ui, sans-serif;
+}
+
+/* ------------------------------------------------------------ */
+/*  ROOT — FONT SCALE + COLOR MODE                               */
+/* ------------------------------------------------------------ */
+:root {
+  --okmd-font-scale: 1;
+  --okmd-text-normal: #1B1D20;
+  --okmd-text-dark: #FFFFFF;
+  --okmd-text-high: #FFD13F;
+
+  /* โหมด active ปัจจุบัน */
+  --text: var(--okmd-text-normal);
+}
+
+html {
+  font-size: calc(16px * var(--okmd-font-scale));
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------ */
+/* CONTRAST MODE                                                 */
+/* ------------------------------------------------------------ */
+html.contrast-dark {
+  --bg: #000000;
+  --text: #ffffff;
+}
+
+html.contrast-high {
+  --bg: #000000;
+  --text: #FFD13F;
+}
+
+/* ------------------------------------------------------------ */
+/* KEYFRAMES                                                     */
+/* ------------------------------------------------------------ */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ------------------------------------------------------------ */
+/* GLOBAL CENTER WRAPPER                                         */
+/* ------------------------------------------------------------ */
+.sectionContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------ */
+/*  REMOVE AUTOMATIC FIGMA GARBAGE CLASSES                       */
+/* ------------------------------------------------------------ */
+.container,
+.wrapper,
+.frame,
+.cWrapper,
+.cContainer,
+.cFrame,
+.parent,
+.div {
+  all: unset;
+}
+
+/* ------------------------------------------------------------ */
+/* OPTIONAL LEGACY SECTION (SAFE)                                */
+/* ------------------------------------------------------------ */
+.uprecommended {
+  width: 100%;
+  height: 708px;
+  position: relative;
+  background-color: #1b1d20;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 80px 150px;
+  gap: 48px 24px;
+  color: #fff;
+  font-family: 'SF Pro';
+}
+
+/* ------------------------------------------------------------ */
+/* RESPONSIVE SYSTEM                                             */
+/* ------------------------------------------------------------ */
+
+@media (max-width: 1280px) {
+  .frameParent2 {
+    left: 80px;
+    width: 75%;
+  }
+}
+
+@media (max-width: 992px) {
+  .highlight,
+  .recommended,
+  .shelf,
+  .activity,
+  .news {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aiDrivenIntelligence {
+    font-size: 42px;
+    line-height: 52px;
+  }
+}
+
+@media (max-width: 576px) {
+  .highlight,
+  .recommended,
+  .shelf,
+  .activity,
+  .news {
+    padding: 40px 16px;
+  }
+}
+
+/* ========================== */
+/* FONT SIZE CONTROL          */
+/* ========================== */
+html[data-font="sm"] {
+  font-size: 14px;
+}
+html[data-font="md"] {
+  font-size: 16px;
+}
+html[data-font="lg"] {
+  font-size: 18px;
+}
+
+/* ========================== */
+/* CONTRAST CONTROL           */
+/* ========================== */
+html[data-contrast="normal"] {
+  filter: none;
+}
+html[data-contrast="dark"] {
+  filter: invert(100%) hue-rotate(180deg);
+}
+html[data-contrast="high"] {
+  filter: contrast(150%);
+}
